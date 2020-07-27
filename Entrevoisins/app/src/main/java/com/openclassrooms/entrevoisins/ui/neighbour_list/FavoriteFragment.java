@@ -53,13 +53,11 @@ public class FavoriteFragment extends Fragment {
     }
 
     // Récupération la liste des voisins via l'api
-    private void initfav(){
-        mNeighbours = mApiService.getNeighbours();
+    private void initfav() {
+        mNeighbours = mApiService.getFavoriteNeighbour();
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
     }
 
-
-    //recupere la liste si l'appli a ete mise en pause
     @Override
     public void onResume() {
         super.onResume();
@@ -80,11 +78,12 @@ public class FavoriteFragment extends Fragment {
 
     /**
      * Fired if the user clicks on a delete button
+     *
      * @param event
      */
     @Subscribe
-    public void onRemoveFavNeighbour(DeleteNeighbourEvent event) {
-        mApiService.removefavorite(event.neighbour);
+    public void onRemoveNeighbour(DeleteNeighbourEvent event) {
+        mApiService.deleteNeighbour(event.neighbour);
         initfav();
     }
 
