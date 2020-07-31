@@ -3,6 +3,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class FragmentProfile extends Fragment {
+public class ProfileFragment extends Fragment {
 
     @BindView(R.id.profile_name)
     TextView profile_name;
@@ -44,11 +45,12 @@ public class FragmentProfile extends Fragment {
     TextView about;
 
 
+
     private NeighbourApiService mApiService;
     protected Neighbour mNeighbour;
 
-   public FragmentProfile() {
-   }
+    public ProfileFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,9 @@ public class FragmentProfile extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile_neighbour, container, false);
         ButterKnife.bind(this, view);
+
+        //scroll describe text
+        about.setMovementMethod(new ScrollingMovementMethod());
 
         //Recupère les infos du profile dans le modele
         profile_name.setText(mNeighbour.getName());

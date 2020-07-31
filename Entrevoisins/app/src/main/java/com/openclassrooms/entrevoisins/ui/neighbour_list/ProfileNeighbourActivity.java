@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 public class ProfileNeighbourActivity extends AppCompatActivity {
 
-    private FragmentProfile mFragmentProfile;
+    private ProfileFragment mProfileFragment;
     private Serializable mNeighbour;
     public static String NEIGHBOUR = "NEIGHBOUR";
 
@@ -25,11 +25,11 @@ public class ProfileNeighbourActivity extends AppCompatActivity {
         Bundle args = new Bundle();
         args.putSerializable(NEIGHBOUR, mNeighbour);
 
-        mFragmentProfile = new FragmentProfile();
-        mFragmentProfile.setArguments(args);
+        mProfileFragment = new ProfileFragment();
+        mProfileFragment.setArguments(args);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.profile_activity_framelayout, mFragmentProfile)
+                .add(R.id.profile_activity_framelayout, mProfileFragment)
                 .commit();
 
     }

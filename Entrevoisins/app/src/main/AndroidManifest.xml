@@ -17,7 +17,8 @@
             android:label="@string/activity_new_neighbour" />
         <activity
             android:name=".ui.neighbour_list.ProfileNeighbourActivity"
-            android:label="Profile" />
+            android:label="Profile"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.neighbour_list.ListNeighbourActivity"
             android:label="@string/app_name"

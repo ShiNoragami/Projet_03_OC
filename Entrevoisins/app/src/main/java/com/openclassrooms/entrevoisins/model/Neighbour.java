@@ -8,29 +8,44 @@ import java.util.Objects;
  */
 public class Neighbour implements Serializable {
 
-    /** Identifier */
+    /**
+     * Identifier
+     */
     private long id;
 
-    /** Full name */
+    /**
+     * Full name
+     */
     private String name;
 
-    /** Avatar */
+    /**
+     * Avatar
+     */
     private String avatarUrl;
 
-    /** Adress */
+    /**
+     * Adress
+     */
     private String address;
 
-    /** Phone number */
+    /**
+     * Phone number
+     */
     private String phoneNumber;
 
-    /** About me */
+    /**
+     * About me
+     */
     private String aboutMe;
 
-    /** Favorite */
+    /**
+     * Favorite
+     */
     private Boolean favorite;
 
     /**
      * Constructor
+     *
      * @param id
      * @param name
      * @param avatarUrl

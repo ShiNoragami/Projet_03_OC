@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Dummy mock for the Api
  */
-public class DummyNeighbourApiService implements  NeighbourApiService {
+public class DummyNeighbourApiService implements NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
 
@@ -31,6 +31,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     /**
      * {@inheritDoc}
+     *
      * @param neighbour
      */
     @Override
@@ -40,18 +41,18 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
 
     /**
-    * Ajout des fonctions pour la liste favoris
-    */
+     * Ajout des fonctions pour la liste favoris
+     */
 
     //Ajoute un favoris
     @Override
-    public void addfavorite(Neighbour neighbour){
-       neighbours.get(neighbours.indexOf(neighbour)).setFavorite(true);
+    public void addfavorite(Neighbour neighbour) {
+        neighbours.get(neighbours.indexOf(neighbour)).setFavorite(true);
     }
 
     //Retourne si oui ou non il est favoris
     @Override
-    public Boolean isfavorite(Neighbour neighbour){
+    public Boolean isfavorite(Neighbour neighbour) {
         return neighbours.get(neighbours.indexOf(neighbour)).getFavorite();
     }
 
@@ -59,8 +60,8 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public List<Neighbour> getFavoriteNeighbour() {
         List<Neighbour> favoriteNeighbourList = new ArrayList<>();
-        for (Neighbour n: neighbours) {
-            if (n.getFavorite()){
+        for (Neighbour n : neighbours) {
+            if (n.getFavorite()) {
                 favoriteNeighbourList.add(n);
             }
         }
@@ -69,7 +70,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     //Supprime un Favoris
     @Override
-    public void removefavorite(Neighbour neighbour){
+    public void removefavorite(Neighbour neighbour) {
         neighbours.get(neighbours.indexOf(neighbour)).setFavorite(false);
     }
 }

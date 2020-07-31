@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_grey"
-    tools:context=".ui.neighbour_list.FragmentProfile">
+    tools:context=".ui.neighbour_list.ProfileFragment">
 
     <ImageView
         android:id="@+id/profile_picture"
@@ -15,7 +14,7 @@
         android:layout_height="250dp"
         android:src="@drawable/ic_account"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/profile_return"
@@ -30,11 +29,12 @@
         android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
         android:text="@string/activity_profile_name"
         android:textSize="32sp"
-        android:layout_margin="@dimen/text_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/profile_picture"/>
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/profile_favorite"
@@ -54,10 +54,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        app:layout_constraintTop_toBottomOf="@id/profile_picture"
-        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cardCornerRadius="10dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_picture">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,14 +71,13 @@
                 android:layout_margin="@dimen/text_margin"
                 android:text="@string/activity_profile_name"
                 android:textColor="@android:color/black"
-                android:textSize="24sp"
-                />
-            
+                android:textSize="24sp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/colorPrimary"/>
-            
+                android:background="@color/colorPrimary" />
+
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -91,11 +90,10 @@
                     android:padding="@dimen/appbar_padding_top"
                     android:src="@drawable/ic_location_pink_24dp"
                     android:tint="@color/colorAccent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/img_tel"
                     app:layout_constraintRight_toLeftOf="@id/info_location"
-                    />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/info_location"
@@ -104,10 +102,9 @@
                     android:padding="@dimen/appbar_padding_top"
                     android:text="@string/activity_profile_location"
                     android:textSize="16sp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/img_location"
                     app:layout_constraintBottom_toTopOf="@id/info_tel"
-                    />
+                    app:layout_constraintStart_toEndOf="@id/img_location"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/img_tel"
@@ -116,11 +113,10 @@
                     android:padding="@dimen/appbar_padding_top"
                     android:src="@drawable/ic_phone_24dp"
                     android:tint="@color/colorAccent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_location"
                     app:layout_constraintBottom_toTopOf="@id/img_fb"
                     app:layout_constraintRight_toLeftOf="@id/info_tel"
-                    />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_location" />
 
                 <TextView
                     android:id="@+id/info_tel"
@@ -129,10 +125,9 @@
                     android:padding="@dimen/appbar_padding_top"
                     android:text="@string/activity_profile_tel"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@id/img_tel"
-                    app:layout_constraintTop_toBottomOf="@id/info_location"
                     app:layout_constraintBottom_toTopOf="@id/info_fb"
-                    />
+                    app:layout_constraintStart_toEndOf="@id/img_tel"
+                    app:layout_constraintTop_toBottomOf="@id/info_location" />
 
                 <ImageView
                     android:id="@+id/img_fb"
@@ -141,11 +136,10 @@
                     android:padding="@dimen/appbar_padding_top"
                     android:src="@drawable/ic_fb_24dp"
                     android:tint="@color/colorAccent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img_tel"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/info_fb"
-                    />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_tel" />
 
                 <TextView
                     android:id="@+id/info_fb"
@@ -154,10 +148,9 @@
                     android:padding="@dimen/appbar_padding_top"
                     android:text="@string/activity_profile_fb"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toEndOf="@id/img_fb"
-                    app:layout_constraintTop_toBottomOf="@id/info_tel"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                    app:layout_constraintStart_toEndOf="@id/img_fb"
+                    app:layout_constraintTop_toBottomOf="@id/info_tel" />
             </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
@@ -169,44 +162,51 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        app:layout_constraintTop_toBottomOf="@id/profile_info"
-        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cardCornerRadius="10dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_info">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
 
-            <TextView
-                android:id="@+id/info_describe"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="@string/activity_profile_describe"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
+                android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorPrimary"/>
+                <TextView
+                    android:id="@+id/info_describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:text="@string/activity_profile_describe"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/describe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="@string/activity_describe"
-                android:textSize="16sp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorPrimary" />
 
-        </LinearLayout>
+                <ScrollView
+                    android:id="@+id/textAreaScroller"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:layout_x="0dp"
+                    android:layout_y="25dp"
+                    android:scrollbars="vertical">
+                <TextView
+                    android:id="@+id/describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/text_margin"
+                    android:text="@string/activity_describe"
+                    android:textSize="16sp"
+                    />
+                </ScrollView>
 
+            </LinearLayout>
     </android.support.v7.widget.CardView>
-
-
 
 
 </android.support.constraint.ConstraintLayout>
