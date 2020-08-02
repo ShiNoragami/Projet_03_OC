@@ -9,6 +9,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+    }
+    testOptions {
+        execution 'ANDROID_TEST_ORCHESTRATOR'
     }
     buildTypes {
         release {
@@ -41,11 +45,13 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
 
     // UNIT TEST
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     testImplementation 'org.hamcrest:java-hamcrest:2.0.0.0'
+
     // INSTRUMENTATION TEST
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
+    androidTestUtil 'com.android.support.test:orchestrator:1.0.2'
 }

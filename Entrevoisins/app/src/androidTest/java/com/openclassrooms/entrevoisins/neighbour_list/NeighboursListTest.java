@@ -38,7 +38,6 @@ import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAsserti
 import static org.hamcrest.core.IsNull.notNullValue;
 
 
-
 /**
  * Test class for list of neighbours
  */
@@ -46,7 +45,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 public class NeighboursListTest {
 
 
-    private static int ITEMS_COUNT ;
+    private static int ITEMS_COUNT;
     private int POSITION_ITEM = 0;
 
     private ListNeighbourActivity mActivity;
@@ -65,18 +64,9 @@ public class NeighboursListTest {
         mService = DI.getNewInstanceApiService();
         neighbourList = mService.getNeighbours();
         ITEMS_COUNT = neighbourList.size();
-
     }
 
-   /* @After
-    public  void clear(){
-        mActivity = mActivityRule.getActivity();
-        assertThat(mActivity, notNullValue());
-        mService = DI.getNewInstanceApiService();
-        neighbourList = mService.getNeighbours();
-        ITEMS_COUNT = neighbourList.size();
 
-    }*/
 
     /**
      * We ensure that our recyclerview is displaying at least on item
@@ -95,11 +85,13 @@ public class NeighboursListTest {
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
         // Given : We remove the element at position selected
         onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        System.out.println("Nombre d'objet " + ITEMS_COUNT);
         // When perform a click on a delete icon
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(2, new DeleteViewAction()));
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        System.out.println("Nombre d'objet:" + ITEMS_COUNT);
     }
 
     /**
@@ -145,7 +137,7 @@ public class NeighboursListTest {
         pressBack();
 
         onView(withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(POSITION_ITEM+1, click()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(POSITION_ITEM + 1, click()));
         onView(withId(R.id.profile_favorite))
                 .perform(click());
         pressBack();
@@ -177,7 +169,7 @@ public class NeighboursListTest {
 
         // quand: click sur l'icone pour enlever le favoris
         onView(ViewMatchers.withId(R.id.fav_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition( 0, new DeleteViewAction()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
         // apres : verifie le nombre d'element dans la liste favoris est -1
         onView(ViewMatchers.withId(R.id.fav_neighbours)).check(withItemCount(0));
     }
