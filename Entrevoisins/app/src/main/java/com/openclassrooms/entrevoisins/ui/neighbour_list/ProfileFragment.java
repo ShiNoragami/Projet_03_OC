@@ -17,8 +17,6 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
-import org.w3c.dom.Text;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -44,8 +42,6 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.describe)
     TextView about;
 
-
-
     private NeighbourApiService mApiService;
     protected Neighbour mNeighbour;
 
@@ -55,14 +51,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Bundle args = getArguments();
         if (args.getSerializable(ProfileNeighbourActivity.NEIGHBOUR) != null) {
             mNeighbour = (Neighbour) args.getSerializable(ProfileNeighbourActivity.NEIGHBOUR);
         }
         mApiService = DI.getNeighbourApiService();
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,7 +67,7 @@ public class ProfileFragment extends Fragment {
         //scroll describe text
         about.setMovementMethod(new ScrollingMovementMethod());
 
-        //Recupère les infos du profile dans le modele
+        //Get profile information
         profile_name.setText(mNeighbour.getName());
         name.setText(mNeighbour.getName());
         social.setText("www.facebook.com/" + mNeighbour.getName());
@@ -96,7 +90,7 @@ public class ProfileFragment extends Fragment {
     }
 
     public void setFavoriteImg() {
-        if (mApiService.isfavorite(mNeighbour)) {
+        if (mApiService.isFavorite(mNeighbour)) {
             fab_favorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_white_24dp));
         } else {
             fab_favorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_border_white_24dp));
@@ -104,15 +98,13 @@ public class ProfileFragment extends Fragment {
     }
 
     public void setFabFavorite() {
-        if (mApiService.isfavorite(mNeighbour)) {
-            mApiService.removefavorite(mNeighbour);
-            Toast.makeText(this.getContext(), "Le voisin n'est plus dans vos favoris", Toast.LENGTH_SHORT).show();
+        if (mApiService.isFavorite(mNeighbour)) {
+            mApiService.removeFavorite(mNeighbour);
+            Toast.makeText(this.getContext(), R.string.toast_not_fav, Toast.LENGTH_SHORT).show();
         } else {
-            mApiService.addfavorite(mNeighbour);
-            Toast.makeText(this.getContext(), "Le voisin à été ajouté dans vos favoris", Toast.LENGTH_SHORT).show();
+            mApiService.addFavorite(mNeighbour);
+            Toast.makeText(this.getContext(), R.string.toast_fav, Toast.LENGTH_SHORT).show();
         }
         setFavoriteImg();
     }
-
-
 }

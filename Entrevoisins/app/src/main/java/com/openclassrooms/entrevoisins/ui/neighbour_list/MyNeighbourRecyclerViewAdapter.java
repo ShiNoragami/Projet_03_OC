@@ -27,7 +27,6 @@ import butterknife.ButterKnife;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
     }
@@ -55,7 +54,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             }
         });
 
-        //creer un holder pour passer sur la fenetre profile
+        //create holder to go to Profile
         holder.mNeighbourItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +63,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 v.getContext().startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -81,7 +79,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         public ImageButton mDeleteButton;
         @BindView(R.id.neighbour_item)
         public ConstraintLayout mNeighbourItem;
-
 
         public ViewHolder(View view) {
             super(view);

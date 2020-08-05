@@ -37,17 +37,17 @@ public interface NeighbourApiService {
 
     List<Neighbour> getFavoriteNeighbour();
 
-    Boolean isfavorite(Neighbour neighbour);
+    Boolean isFavorite(Neighbour neighbour);
 
     /**
      * Add Favorite Neighbour
      */
-    void addfavorite(Neighbour neighbour);
+    void addFavorite(Neighbour neighbour);
 
     /**
      * Remove favorite Neighbour
      */
-    void removefavorite(Neighbour neighbour);
+    void removeFavorite(Neighbour neighbour);
 
 
 }

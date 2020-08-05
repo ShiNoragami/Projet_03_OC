@@ -47,23 +47,23 @@ public class NeighbourServiceTest {
     @Test
     public void getListFavNeighbourNotEmpty() {
         Neighbour neighbour = service.getNeighbours().get(0);
-        service.addfavorite(neighbour);
+        service.addFavorite(neighbour);
         assertFalse(service.getFavoriteNeighbour().isEmpty());
     }
 
     @Test
     public void addNeighbourToFavoriteWithSuccess(){
         Neighbour neighbouradd = service.getNeighbours().get(0);
-        service.addfavorite(neighbouradd);
+        service.addFavorite(neighbouradd);
         assertTrue(service.getFavoriteNeighbour().contains(neighbouradd));
     }
 
     @Test
     public void removeNeighbourToFavoriteWithSuccess(){
         Neighbour neighbourremove = service.getNeighbours().get(0);
-        service.addfavorite(neighbourremove);
+        service.addFavorite(neighbourremove);
         assertTrue(service.getFavoriteNeighbour().contains(neighbourremove));
-        service.removefavorite((neighbourremove));
+        service.removeFavorite((neighbourremove));
         assertFalse(service.getFavoriteNeighbour().contains(neighbourremove));
     }
 

@@ -16,8 +16,6 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      * @param position
      * @return
      */
-
-    //Choix du fragment à afficher Voisins/Favoris
     @Override
     public Fragment getItem(int position) {
         switch (position){
@@ -28,8 +26,6 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
             default:
                 return null;
         }
-
-
     }
 
     /**

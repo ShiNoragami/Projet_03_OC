@@ -23,12 +23,12 @@ import java.util.List;
 
 public class FavoriteFragment extends Fragment {
 
-    //Récupération des informations via l'api Dummy
+    //Get information from API
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
 
-    //Création de l'instance pour l'affichage des favoris
+    //Create Favorite Instance
     public static FavoriteFragment newInstance() {
         FavoriteFragment fragment = new FavoriteFragment();
         return fragment;
@@ -40,7 +40,7 @@ public class FavoriteFragment extends Fragment {
         mApiService = DI.getNeighbourApiService();
     }
 
-    //Création de la vue des Favoris
+    //Create Favorite view
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,11 +48,12 @@ public class FavoriteFragment extends Fragment {
         Context context = view.getContext();
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
+                DividerItemDecoration.VERTICAL));
         return view;
     }
 
-    // Récupération la liste des voisins via l'api
+    // Initialize favorite list
     private void initfav() {
         mNeighbours = mApiService.getFavoriteNeighbour();
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
@@ -82,10 +83,8 @@ public class FavoriteFragment extends Fragment {
      * @param event
      */
     @Subscribe
-    public void onDeleteNeighbour (DeleteNeighbourEvent event) {
+    public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
         initfav();
     }
-
-
 }
