@@ -1,4 +1,4 @@
-![Cover](https://github.com/ShiNoragami/Projet_02_OC/blob/master/magicgithub.png)
+![Cover](https://github.com/ShiNoragami/Projet_03_OC/blob/master/entre-voisins.jpg)
 
 # Entre voisins
 
