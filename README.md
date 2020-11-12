@@ -2,11 +2,11 @@
 
 # Entre voisins
 
-3ème projet de la formation Développeur Android OpenClassrooms.
+5ème projet de la formation Développeur Android OpenClassrooms.
 
 ## Description
 
-"Vous avez rejoint une start-up qui développe une application de partage de services innovants. Ajoutez votre pierre à l'édifice en développant une nouvelle fonctionnalité et testez-la."
+"L'application de votre client fonctionne parfaitement bien. Cependant, lors d'une rotation de l'écran ou d'un redémarrage de votre application, les données disparaissent... Remédiez à ce problème grâce à SQLite !"
 
 ## Badges
 
